@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>WeDey4U | Cart</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <nav>
+        <a href="index.html" class="logo">WeDey<span>4U</span></a>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="index.html#products-section">Products</a>
+            <a href="cart.html" class="cart-link" style="color:var(--primary)!important; border-color:rgba(255,107,44,0.4)!important;">
+                Cart <span id="cart-badge" class="cart-count">0</span>
+            </a>
+            <a href="login.html" id="nav-login" class="btn-primary" style="padding:9px 22px;font-size:0.88rem;">Login</a>
+        </div>
+    </nav>
+
+    <div class="section">
+        <div class="section-title" style="margin-bottom:40px;">
+            <div class="section-tag">Your Selection</div>
+            <h2>Shopping <span>Cart</span></h2>
+            <p>Review your items before proceeding to checkout.</p>
+        </div>
+
+        <div class="cart-page-container">
+            <div id="cart-items"></div>
+            <div style="display:flex; justify-content:flex-end; gap:12px; margin-top:24px; flex-wrap:wrap;">
+                <button class="btn-secondary" onclick="window.location.href='index.html'" style="width:auto;">
+                    ← Continue Shopping
+                </button>
+                <button class="btn-primary" onclick="window.location.href='checkout.html'" style="width:auto;">
+                    Proceed to Checkout →
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/cart.js"></script>
+    <script src="js/auth.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            renderCartItems();
+        });
+    </script>
+</body>
+</html>

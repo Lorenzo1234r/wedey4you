@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>ShopBlaze | Profile</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <nav>
+        <a href="index.html" class="logo">Shop<span>Blaze</span></a>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="index.html#products-section">Products</a>
+            <a href="cart.html" class="cart-link">Cart<span id="cart-badge" class="cart-count">0</span></a>
+            <a href="login.html" id="nav-login">Login</a>
+        </div>
+    </nav>
+    
+    <div class="section">
+        <div class="profile-container" style="max-width: 800px; margin: 0 auto;">
+            <div class="user-info-card" style="background: white; padding: 30px; border-radius: 15px; box-shadow: var(--card-shadow); text-align: center; margin-bottom: 30px;">
+                <div style="width: 80px; height: 80px; background: var(--primary); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2rem; font-weight: bold; margin: 0 auto 15px;" id="profile-initial">
+                    ?
+                </div>
+                <h2 style="margin-bottom: 5px;" id="profile-name">Loading...</h2>
+                <p style="color: var(--gray);" id="profile-email">loading@email.com</p>
+                <div style="margin-top: 20px;">
+                     <button class="btn-primary" style="background: var(--secondary); width: auto; padding: 10px 25px;" id="logout-btn">Log Out</button>
+                </div>
+            </div>
+
+            <div class="orders-card" style="background: white; padding: 30px; border-radius: 15px; box-shadow: var(--card-shadow);">
+                <h3 style="font-size: 1.5rem; margin-bottom: 20px; color: var(--dark); border-bottom: 2px solid var(--light); padding-bottom: 10px;">Order History</h3>
+                <div id="orders-list">
+                    <p style="color: var(--gray); text-align: center;">Loading your orders...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/cart.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/profile.js"></script>
+</body>
+</html>

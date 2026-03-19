@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>WeDey4U | Checkout</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <nav>
+        <a href="index.html" class="logo">WeDey<span>4U</span></a>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="index.html#products-section">Products</a>
+            <a href="cart.html" class="cart-link">Cart <span id="cart-badge" class="cart-count">0</span></a>
+            <a href="login.html" id="nav-login" class="btn-primary" style="padding:9px 22px;font-size:0.88rem;">Login</a>
+        </div>
+    </nav>
+
+    <div class="section">
+        <div class="section-title" style="margin-bottom:40px;">
+            <div class="section-tag">Step 3 of 3</div>
+            <h2>Complete Your <span>Order</span></h2>
+            <p>You're one step away from premium tech in your hands.</p>
+        </div>
+
+        <div class="checkout-wrapper">
+            <!-- LEFT: FORM -->
+            <div class="checkout-main">
+
+                <!-- SHIPPING -->
+                <div class="checkout-section-label">📦 Shipping Information</div>
+                <div class="form-group">
+                    <label>Recipient Name</label>
+                    <input type="text" id="recipient-name" placeholder="Full name">
+                </div>
+                <div class="form-group">
+                    <label>Shipping Address</label>
+                    <input type="text" id="address" placeholder="Street address, dorm, or P.O. Box">
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>City</label>
+                        <input type="text" id="city" placeholder="Accra">
+                    </div>
+                    <div class="form-group">
+                        <label>Postal Code</label>
+                        <input type="text" id="postal-code" placeholder="00233">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Country</label>
+                    <input type="text" id="country" placeholder="Ghana" value="Ghana">
+                </div>
+
+                <div style="margin-top: 36px;"></div>
+
+                <!-- PAYMENT METHOD -->
+                <div class="checkout-section-label">💳 Payment Method</div>
+
+                <div class="payment-options">
+                    <label class="payment-option">
+                        <input type="radio" name="payment-method" value="Mobile Money" checked>
+                        <div class="payment-card">
+                            <span class="payment-icon">📱</span>
+                            <span>Mobile Money</span>
+                        </div>
+                    </label>
+                    <label class="payment-option">
+                        <input type="radio" name="payment-method" value="Card">
+                        <div class="payment-card">
+                            <span class="payment-icon">💳</span>
+                            <span>Card Payment</span>
+                        </div>
+                    </label>
+                    <label class="payment-option">
+                        <input type="radio" name="payment-method" value="Bank Transfer">
+                        <div class="payment-card">
+                            <span class="payment-icon">🏦</span>
+                            <span>Bank Transfer</span>
+                        </div>
+                    </label>
+                </div>
+
+                <!-- MOBILE MONEY FORM -->
+                <div id="momo-form" class="payment-details-form active">
+                    <div class="form-group">
+                        <label>Network Provider</label>
+                        <select id="momo-network">
+                            <option>MTN MoMo</option>
+                            <option>Vodafone Cash</option>
+                            <option>AirtelTigo Money</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Phone Number</label>
+                        <input type="tel" id="momo-number" placeholder="024 XXX XXXX" maxlength="13">
+                    </div>
+                    <div style="background:rgba(255,107,44,0.06); border:1px solid var(--border-bright); border-radius:12px; padding:16px; font-size:0.85rem; color:var(--text-muted);">
+                        📲 You will receive a MoMo prompt on your phone to authorise payment. Ensure your phone is accessible.
+                    </div>
+                </div>
+
+                <!-- CARD FORM -->
+                <div id="card-form" class="payment-details-form">
+                    <div class="form-group">
+                        <label>Card Number</label>
+                        <div class="card-input-wrapper">
+                            <input type="text" id="card-num" placeholder="0000  0000  0000  0000" maxlength="19" oninput="formatCard(this)" inputmode="numeric">
+                            <span class="card-brand-icon" id="card-brand">💳</span>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Expiry Date</label>
+                            <input type="text" id="card-expiry" placeholder="MM / YY" maxlength="7" oninput="formatExpiry(this)" inputmode="numeric">
+                        </div>
+                        <div class="form-group">
+                            <label>CVV</label>
+                            <input type="password" id="card-cvv" placeholder="•••" maxlength="4" inputmode="numeric">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Cardholder Name</label>
+                        <input type="text" id="card-name" placeholder="Name as on card">
+                    </div>
+                    <div style="display:flex; align-items:center; gap:10px; margin-top:4px; font-size:0.8rem; color:var(--text-dim);">
+                        🔒 Your card details are encrypted and never stored on our servers.
+                    </div>
+                </div>
+
+                <!-- BANK TRANSFER FORM -->
+                <div id="bank-form" class="payment-details-form">
+                    <div class="bank-info-box">
+                        <div class="bank-info-row">
+                            <span class="label">Bank</span>
+                            <span class="value">Ecobank Ghana</span>
+                        </div>
+                        <div class="bank-info-row">
+                            <span class="label">Account Name</span>
+                            <span class="value">WeDey4U Ltd</span>
+                        </div>
+                        <div class="bank-info-row">
+                            <span class="label">Account Number</span>
+                            <span class="value" style="font-family:monospace; letter-spacing:1px;">1441 0029 3881</span>
+                        </div>
+                        <div class="bank-info-row">
+                            <span class="label">Branch</span>
+                            <span class="value">Accra Main</span>
+                        </div>
+                        <div class="bank-info-note">⚠️ Use your full name as the transfer reference. Orders are confirmed after payment is verified (1–2 hours).</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- RIGHT: SUMMARY -->
+            <div class="checkout-sidebar">
+                <div class="summary-title">Order Summary</div>
+                <div id="checkout-summary">
+                    <p style="color:var(--text-muted); font-size:0.9rem;">Loading cart...</p>
+                </div>
+                <button class="checkout-cta" onclick="placeOrder()">
+                    🔒 Confirm & Pay
+                </button>
+                <div class="security-note">
+                    🛡️ SSL encrypted · Secure checkout
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/cart.js"></script>
+    <script src="js/auth.js"></script>
+    <script>
+    // ── Render summary
+    function renderSummary() {
+        const summaryDiv = document.getElementById('checkout-summary');
+        let total = cart.reduce((sum, item) => sum + item.price, 0);
+        
+        if (total > 0) {
+            const itemsHtml = cart.map(item => `
+                <div class="summary-item">
+                    <span class="summary-item-name">${item.name}</span>
+                    <span class="summary-item-price">GHS ${item.price.toLocaleString()}</span>
+                </div>
+            `).join('');
+
+            summaryDiv.innerHTML = `
+                ${itemsHtml}
+                <div class="summary-total-row">
+                    <span class="summary-total-label">Total</span>
+                    <span class="summary-total-amount">GHS ${total.toLocaleString()}</span>
+                </div>
+            `;
+        } else {
+            summaryDiv.innerHTML = "<p style='color:var(--text-muted);font-size:0.9rem;'>Your cart is empty.</p>";
+        }
+    }
+
+    document.addEventListener('DOMContentLoaded', renderSummary);
+
+    // ── Payment method toggle
+    document.querySelectorAll('input[name="payment-method"]').forEach(radio => {
+        radio.addEventListener('change', function() {
+            document.querySelectorAll('.payment-details-form').forEach(f => f.classList.remove('active'));
+            const map = { 'Mobile Money': 'momo-form', 'Card': 'card-form', 'Bank Transfer': 'bank-form' };
+            const target = document.getElementById(map[this.value]);
+            if (target) target.classList.add('active');
+        });
+    });
+
+    // ── Card number formatter
+    function formatCard(input) {
+        let v = input.value.replace(/\D/g, '').slice(0, 16);
+        input.value = v.replace(/(.{4})/g, '$1  ').trim();
+        
+        const brand = document.getElementById('card-brand');
+        if (v.startsWith('4')) brand.textContent = '🟦'; // Visa
+        else if (v.startsWith('5')) brand.textContent = '🔴'; // MC
+        else if (v.startsWith('37') || v.startsWith('34')) brand.textContent = '🟩'; // Amex
+        else brand.textContent = '💳';
+    }
+
+    // ── Expiry formatter
+    function formatExpiry(input) {
+        let v = input.value.replace(/\D/g, '').slice(0, 4);
+        if (v.length >= 2) v = v.slice(0,2) + ' / ' + v.slice(2);
+        input.value = v;
+    }
+
+    // ── Place order
+    function placeOrder() {
+        const total = cart.reduce((sum, item) => sum + item.price, 0);
+        if (total === 0) { alert("Your cart is empty!"); return; }
+
+        const recipient_name = document.getElementById('recipient-name').value.trim();
+        const address = document.getElementById('address').value.trim();
+        const city = document.getElementById('city').value.trim();
+        const postal_code = document.getElementById('postal-code').value.trim();
+        const country = document.getElementById('country').value.trim();
+        const payment_method = document.querySelector('input[name="payment-method"]:checked').value;
+
+        if (!recipient_name || !address || !city) {
+            alert("Please fill in all required shipping fields.");
+            return;
+        }
+
+        if (payment_method === 'Mobile Money') {
+            const num = document.getElementById('momo-number').value.trim();
+            if (!num) { alert("Please enter your Mobile Money number."); return; }
+        } else if (payment_method === 'Card') {
+            const cardNum = document.getElementById('card-num').value.trim();
+            const expiry = document.getElementById('card-expiry').value.trim();
+            const cvv = document.getElementById('card-cvv').value.trim();
+            if (!cardNum || !expiry || !cvv) { alert("Please fill in all card details."); return; }
+        }
+
+        const btn = document.querySelector('.checkout-cta');
+        btn.innerHTML = '<span style="animation:spin-slow 1s linear infinite;display:inline-block">⏳</span> Processing...';
+        btn.disabled = true;
+        btn.style.opacity = '0.7';
+
+        fetch("http://localhost:3000/order", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+                user_id: JSON.parse(localStorage.getItem("user") || '{}').id,
+                total_price: total,
+                recipient_name, address, city, postal_code, country, payment_method
+            })
+        })
+        .then(res => res.json())
+        .then(async data => {
+            localStorage.removeItem("cart");
+            if (isAuthenticated()) {
+                try {
+                    await fetch("http://localhost:3000/cart", {
+                        method: "DELETE",
+                        headers: { "Authorization": `Bearer ${localStorage.getItem("token")}` }
+                    });
+                } catch (err) {}
+            }
+            alert(`✅ Order placed! ${data.message} (Order ID: ${data.order_id})`);
+            window.location.href = "index.html";
+        })
+        .catch(() => {
+            alert("Failed to place order. Is the backend running?");
+            btn.innerHTML = '🔒 Confirm & Pay';
+            btn.disabled = false;
+            btn.style.opacity = '1';
+        });
+    }
+    </script>
+</body>
+</html>

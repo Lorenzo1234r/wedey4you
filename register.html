@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>ShopBlaze | Register</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <nav>
+        <a href="index.html" class="logo">Shop<span>Blaze</span></a>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="index.html#products-section">Products</a>
+            <a href="cart.html" class="cart-link">Cart<span id="cart-badge" class="cart-count">0</span></a>
+            <a href="login.html" id="nav-login">Login</a>
+        </div>
+    </nav>
+    
+    <div class="section">
+        <div class="auth-container">
+            <h2>Create <span>Account</span></h2>
+            <p>Join the ShopBlaze community today.</p>
+            <form id="register-form">
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" required placeholder="Enter your full name">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" required placeholder="Enter your email">
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" required placeholder="Create a password">
+                </div>
+                <button type="submit">Let's Go!</button>
+            </form>
+            <a href="login.html" class="auth-link">Already have an account? <span>Login here</span></a>
+        </div>
+    </div>
+
+    <script src="js/cart.js"></script>
+    <script src="js/auth.js"></script>
+</body>
+</html>
